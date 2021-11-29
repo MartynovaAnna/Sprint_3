@@ -28,7 +28,7 @@ public class CreateCourierTest {
         Courier courier = Courier.getRandom();
 
         boolean isCourierCreated = courierClient.create(courier);
-        courierId = courierClient.login(CourierCredentials.from(courier));
+        courierId = courierClient.login(CourierLoginPass.from(courier));
 
         assertTrue("Courier is not created", isCourierCreated);
         assertThat("Courier ID is incorrect", courierId, is(not(0)));
@@ -50,7 +50,7 @@ public class CreateCourierTest {
                 .post("/api/v1/courier");
         response.then().statusCode(201);
 
-        courierId = courierClient.login(CourierCredentials.from(courier));
+        courierId = courierClient.login(CourierLoginPass.from(courier));
         courierClient.delete(courierId);
     }
 
@@ -75,7 +75,7 @@ public class CreateCourierTest {
         response.then().assertThat().body("message", equalTo("Этот логин уже используется"))
                 .and()
                 .statusCode(409);
-        courierId = courierClient.login(CourierCredentials.from(courier));
+        courierId = courierClient.login(CourierLoginPass.from(courier));
         courierClient.delete(courierId);
     }
 

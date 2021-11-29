@@ -8,7 +8,7 @@ public class OrderCreation {
         this.orderBody = orderBody;
     }
 
-    @Step("Getting order data")
+    @Step("Getting order mandatory data")
     public static OrderCreation getOrderData() {
         final String orderBody = "{\"firstName\": \"Naruto\", "
                 + "\"lastName\": \"Uchiha\", "

@@ -9,7 +9,7 @@ public class CourierClient extends RestAssuredClient {
     @Step("Create new courier")
     public boolean create(Courier courier) {
         return given()
-                .spec(getBaseSpec())
+                .spec(getBaseSpecification())
                 .body(courier)
                 .when()
                 .post(COURIER_PATH)
@@ -21,9 +21,9 @@ public class CourierClient extends RestAssuredClient {
     }
 
     @Step("Courier login")
-    public int login(CourierCredentials credentials) {
+    public int login(CourierLoginPass credentials) {
         return given()
-                .spec(getBaseSpec())
+                .spec(getBaseSpecification())
                 .body(credentials)
                 .when()
                 .post(COURIER_PATH + "login/")
@@ -34,10 +34,10 @@ public class CourierClient extends RestAssuredClient {
                 .path("id");
     }
 
-    @Step("Courier delete")
+    @Step("Delete courier")
     public boolean delete(int courierId) {
         return given()
-                .spec(getBaseSpec())
+                .spec(getBaseSpecification())
                 .when()
                 .delete(COURIER_PATH + courierId)
                 .then()

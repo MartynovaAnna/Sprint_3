@@ -27,7 +27,7 @@ public class LoginCourierTest {
         Courier courier = Courier.getRandom();
 
         courierClient.create(courier);
-        courierId = courierClient.login(CourierCredentials.from(courier));
+        courierId = courierClient.login(CourierLoginPass.from(courier));
 
         assertThat("Courier ID is incorrect", courierId, is(not(0)));
 
@@ -49,7 +49,7 @@ public class LoginCourierTest {
                 .when()
                 .post("/api/v1/courier/login");
         response.then().statusCode(200);
-        courierId = courierClient.login(CourierCredentials.from(courier));
+        courierId = courierClient.login(CourierLoginPass.from(courier));
         courierClient.delete(courierId);
     }
 
@@ -110,7 +110,7 @@ public class LoginCourierTest {
         response.then().assertThat().body("message", equalTo("Учетная запись не найдена"))
             .and()
                 .statusCode(404);
-        courierId = courierClient.login(CourierCredentials.from(courier));
+        courierId = courierClient.login(CourierLoginPass.from(courier));
         courierClient.delete(courierId);
 }
 
@@ -137,7 +137,7 @@ public class LoginCourierTest {
         response.then().assertThat().body("message", equalTo("Учетная запись не найдена"))
                 .and()
                 .statusCode(404);
-        courierId = courierClient.login(CourierCredentials.from(courier));
+        courierId = courierClient.login(CourierLoginPass.from(courier));
         courierClient.delete(courierId);
     }
 }

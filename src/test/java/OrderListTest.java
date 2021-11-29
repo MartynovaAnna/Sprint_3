@@ -16,7 +16,7 @@ public class OrderListTest {
 
 
     @Test
-    @DisplayName("Can get order list")
+    @DisplayName("Getting order list")
     @Description("This is the getting order list test with console output")
 
     public void canGetOrderList() {

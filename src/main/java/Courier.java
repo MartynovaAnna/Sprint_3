@@ -21,7 +21,7 @@ public class Courier {
         return new Courier(login, password, firstName);
     }
 
-    @Step("Get new courier without login")
+    @Step("Get new courier data without login")
     public static Courier withoutLogin() {
         final String login = "";
         final String password = RandomStringUtils.randomAlphabetic(10);
@@ -29,7 +29,7 @@ public class Courier {
         return new Courier(login, password, firstName);
     }
 
-    @Step("Get new courier without password")
+    @Step("Get new courier data without password")
     public static Courier withoutPassword() {
         final String login = RandomStringUtils.randomAlphabetic(10);
         final String password = "";
@@ -37,7 +37,7 @@ public class Courier {
         return new Courier(login, password, firstName);
     }
 
-    @Step("Get new courier without first name")
+    @Step("Get new courier data without first name")
     public static Courier withoutFirstName() {
         final String login = RandomStringUtils.randomAlphabetic(10);
         final String password = RandomStringUtils.randomAlphabetic(10);
@@ -45,7 +45,7 @@ public class Courier {
         return new Courier(login, password, firstName);
     }
 
-    @Step("Get new courier without first name and login")
+    @Step("Get new courier data without first name and login")
     public static Courier withoutFirstNameAndLogin() {
         final String login = "";
         final String password = RandomStringUtils.randomAlphabetic(10);
@@ -53,7 +53,7 @@ public class Courier {
         return new Courier(login, password, firstName);
     }
 
-    @Step("Get new courier without first name and password")
+    @Step("Get new courier data without first name and password")
     public static Courier withoutFirstNameAndPassword() {
         final String login = RandomStringUtils.randomAlphabetic(10);
         final String password = "";
@@ -61,7 +61,7 @@ public class Courier {
         return new Courier(login, password, firstName);
     }
 
-    @Step("Get new courier with wrong password")
+    @Step("Get new courier data with wrong password")
     public static Courier withWrongPassword() {
         final String login = "Dfwe3433ff";
         final String password = RandomStringUtils.randomAlphabetic(10);
