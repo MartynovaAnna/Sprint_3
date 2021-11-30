@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 @RunWith(Parameterized.class)
- public class OrderCreationTest {
+ public class OrderCreationTest extends RestAssuredClient {
         private final String color;
 
         private String orderBody = "{\"firstName\": \"Naruto\", "
@@ -50,7 +50,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 
         public void createOrderTest() {
             Response response = given()
-                    .header("Content-type", "application/json")
+                    .spec(getBaseSpecification())
                     .and()
                     .body(orderBody + "[\"" + color + "\"]}")
                     .when()

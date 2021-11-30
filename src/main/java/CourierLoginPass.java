@@ -11,4 +11,8 @@ public class CourierLoginPass {
     public static CourierLoginPass from(Courier courier) {
         return new CourierLoginPass(courier.login, courier.password);
     }
+
+    public static CourierLoginPass from(CourierWithWrongPassword courierWithWrongPassword) {
+        return new CourierLoginPass(courierWithWrongPassword.login, courierWithWrongPassword.password);
+    }
 }
